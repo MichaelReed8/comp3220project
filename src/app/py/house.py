@@ -1,4 +1,13 @@
 #We'll use FastAPI to connect the backend database to the frontend
+import geopy.distance
+
+class Location:
+    def __init__(self, lat, long):
+        self.lat = lat
+        self.long = long
+
+    def distance(self, location):
+        return geopy.distance.geodesic(self, location)
 
 class City:
     def __init__(self, zipcodes, location, name):
