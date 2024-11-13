@@ -11,11 +11,14 @@ import React from "react";
 
 const sellPage: React.FC = () => {
     const [formData, setFormData] = useState({
-        name: '',
-        age: '',
-        email: '',
-        phone: '',
-        message: ''
+        addr: '',
+        price: '',
+        city: '',
+        acres: '',
+        bed: '',
+        bath: '',
+        state: '',
+        zip: '',
       });
     
       // Handle form field changes
@@ -36,82 +39,148 @@ const sellPage: React.FC = () => {
       };
     
       return (
-        <Container className=" justify-content-center align-items-center" style={{ height: '100vh' }}>
-          <Form onSubmit={handleSubmit} style={{ textAlign:"center", width: '100%' }}>
-            <h2 className="text-center mb-4">Please Provide Your Information</h2>
-            
+        <>
+        <h1 className="text-center mb-4">Please enter your house information</h1>
+        <Container className=" justify-content-center align-items-center" style={{  height: '100vh' }}>
+          
+          <Row>
+          <Col md={2} lg={2}></Col>
+          <Col md={8} lg={8}>
+          
+          <Form onSubmit={handleSubmit} className="mb-3" style={{ textAlign:"center", width: '100%' }}>
             {/* Name Input */}
-            <Form.Group controlId="name">
-              <Form.Label>Full Name</Form.Label>
+            <Form.Group className="mb-3" controlId="name">
+              <Form.Label>Full Address</Form.Label>
               <Form.Control 
                 type="text" 
-                name="name" 
-                value={formData.name} 
+                name="address" 
+                value={formData.addr} 
                 onChange={handleChange} 
-                placeholder="Enter your full name" 
+                placeholder="1234 Address St." 
                 required 
               />
             </Form.Group>
-    
+            <Form.Group className="mb-3" controlId="name">
+              <Form.Label>City</Form.Label>
+              <Form.Control 
+                type="text" 
+                name="address" 
+                value={formData.city} 
+                onChange={handleChange} 
+                placeholder="Detroit" 
+                required 
+              />
+            </Form.Group>
+            <Row className="mb-3">
+              <Col>
             {/* Age Input */}
             <Form.Group controlId="age">
-              <Form.Label>Age</Form.Label>
+              <Form.Label>Price</Form.Label>
               <Form.Control 
                 type="number" 
                 name="age" 
-                value={formData.age} 
+                value={formData.price} 
                 onChange={handleChange} 
-                placeholder="Enter your age" 
+                placeholder="123456" 
                 required 
               />
             </Form.Group>
-    
+              </Col>
+              <Col>
             {/* Email Input */}
             <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control 
-                type="email" 
-                name="email" 
-                value={formData.email} 
+              <Form.Label>Lot Size in Acres</Form.Label>
+              <Form.Control
+                type="number"  
+                name="size" 
+                value={formData.acres} 
                 onChange={handleChange} 
-                placeholder="Enter your email" 
+                placeholder="1.2" 
                 required 
               />
             </Form.Group>
-    
+            </Col>
+          </Row>
+          <Row>
+            <Col>
             {/* Phone Input */}
             <Form.Group controlId="phone">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control 
-                type="tel" 
+              <Form.Label>Number of Bedrooms</Form.Label>
+              <Form.Control
+                type="number" 
                 name="phone" 
-                value={formData.phone} 
+                value={formData.bed} 
                 onChange={handleChange} 
-                placeholder="Enter your phone number" 
+                placeholder="2" 
                 required 
               />
             </Form.Group>
-    
+          </Col>
+          <Col>
             {/* Message Input */}
             <Form.Group controlId="message">
-              <Form.Label>Message</Form.Label>
+              <Form.Label>Number of Bathrooms</Form.Label>
               <Form.Control 
-                type="text" 
+                type="number" 
                 name="message" 
-                value={formData.message} 
+                value={formData.bath} 
                 onChange={handleChange} 
-                placeholder="Enter a message" 
+                placeholder="2" 
                 required 
               />
             </Form.Group>
+            </Col>
+            </Row>
+            <Row className="mt-3">
+            <Col>
+            {/* Phone Input */}
+            <Form.Group controlId="phone">
+              <Form.Label>Zip Code</Form.Label>
+              <Form.Control 
+                type="number"
+                name="phone" 
+                value={formData.zip} 
+                onChange={handleChange} 
+                placeholder="12345" 
+                required 
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            {/* Message Input */}
+            <Form.Group controlId="message">
+              <Form.Label>State</Form.Label>
+              <Form.Control 
+                type="number" 
+                name="message" 
+                value={formData.state} 
+                onChange={handleChange} 
+                placeholder="Michigan" 
+                required 
+              />
+            </Form.Group>
+            </Col>
+            </Row>
+            <style type="text/css">
+        {`
+    .btn-custom {
+      background-color: #DF9287;
+      color: white;
+      margin-top: 20px;
+    }
+
     
-            {/* Submit Button */}
-            <Button variant="primary">
-              Submit
-            </Button>
+    `}
+      </style>
+
+      <Button variant="custom" size="lg">
+        Submit
+      </Button>
           </Form>
+          </Col>
+          </Row>
         </Container>
-    
+    </>
     );
 }
 export default sellPage;
