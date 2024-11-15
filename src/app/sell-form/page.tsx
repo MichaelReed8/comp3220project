@@ -3,7 +3,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import TFSAvars from "@/components/sell-form-interface";
 import Container from "react-bootstrap/Container";
 import {useState} from "react";
 import React from "react";
@@ -19,6 +18,8 @@ const sellPage: React.FC = () => {
         bath: '',
         state: '',
         zip: '',
+        contact: '',
+        sqft: ''
       });
     
       // Handle form field changes
@@ -33,10 +34,18 @@ const sellPage: React.FC = () => {
       // Handle form submission
       const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        const entry = parseData();
+        /* entry needs to be sent to back-end to be inputted */
+        console.log(entry);
         console.log('Form submitted:', formData);
-        // Optionally, you can send the form data to an API or handle it as needed
-        alert('Form Submitted!');
+        
       };
+
+      function parseData() {
+        var metaData: string;
+        metaData = formData.contact + ",for_sale," + formData.price + "," + formData.bed + "," + formData.bath + "," + formData.acres + "," + formData.addr + "," + formData.city + "," + formData.state + "," + formData.zip + "," + formData.sqft + ", n/a";
+        return metaData;
+      }
     
       return (
         <>
@@ -53,7 +62,7 @@ const sellPage: React.FC = () => {
               <Form.Label>Full Address</Form.Label>
               <Form.Control 
                 type="text" 
-                name="address" 
+                name="addr" 
                 value={formData.addr} 
                 onChange={handleChange} 
                 placeholder="1234 Address St." 
@@ -64,7 +73,7 @@ const sellPage: React.FC = () => {
               <Form.Label>City</Form.Label>
               <Form.Control 
                 type="text" 
-                name="address" 
+                name="city" 
                 value={formData.city} 
                 onChange={handleChange} 
                 placeholder="Detroit" 
@@ -75,13 +84,13 @@ const sellPage: React.FC = () => {
               <Col>
             {/* Age Input */}
             <Form.Group controlId="age">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>Square Footage</Form.Label>
               <Form.Control 
                 type="number" 
-                name="age" 
-                value={formData.price} 
+                name="sqft" 
+                value={formData.sqft} 
                 onChange={handleChange} 
-                placeholder="123456" 
+                placeholder="1234" 
                 required 
               />
             </Form.Group>
@@ -92,7 +101,7 @@ const sellPage: React.FC = () => {
               <Form.Label>Lot Size in Acres</Form.Label>
               <Form.Control
                 type="number"  
-                name="size" 
+                name="acres" 
                 value={formData.acres} 
                 onChange={handleChange} 
                 placeholder="1.2" 
@@ -108,7 +117,7 @@ const sellPage: React.FC = () => {
               <Form.Label>Number of Bedrooms</Form.Label>
               <Form.Control
                 type="number" 
-                name="phone" 
+                name="bed" 
                 value={formData.bed} 
                 onChange={handleChange} 
                 placeholder="2" 
@@ -122,7 +131,7 @@ const sellPage: React.FC = () => {
               <Form.Label>Number of Bathrooms</Form.Label>
               <Form.Control 
                 type="number" 
-                name="message" 
+                name="bath" 
                 value={formData.bath} 
                 onChange={handleChange} 
                 placeholder="2" 
@@ -138,7 +147,7 @@ const sellPage: React.FC = () => {
               <Form.Label>Zip Code</Form.Label>
               <Form.Control 
                 type="number"
-                name="phone" 
+                name="zip" 
                 value={formData.zip} 
                 onChange={handleChange} 
                 placeholder="12345" 
@@ -151,11 +160,41 @@ const sellPage: React.FC = () => {
             <Form.Group controlId="message">
               <Form.Label>State</Form.Label>
               <Form.Control 
-                type="number" 
-                name="message" 
+                type="text" 
+                name="state" 
                 value={formData.state} 
                 onChange={handleChange} 
                 placeholder="Michigan" 
+                required 
+              />
+            </Form.Group>
+            </Col>
+            </Row>
+            <Row className="mt-3">
+            <Col>
+            {/* Phone Input */}
+            <Form.Group controlId="phone">
+              <Form.Label>Price</Form.Label>
+              <Form.Control 
+                type="number"
+                name="price" 
+                value={formData.price} 
+                onChange={handleChange} 
+                placeholder="123456" 
+                required 
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            {/* Message Input */}
+            <Form.Group controlId="message">
+              <Form.Label>Email</Form.Label>
+              <Form.Control 
+                type="email" 
+                name="contact" 
+                value={formData.contact} 
+                onChange={handleChange} 
+                placeholder="name@example.com" 
                 required 
               />
             </Form.Group>
@@ -173,7 +212,7 @@ const sellPage: React.FC = () => {
     `}
       </style>
 
-      <Button variant="custom" size="lg">
+      <Button variant="custom" size="lg" onClick={handleSubmit}>
         Submit
       </Button>
           </Form>
