@@ -1,16 +1,32 @@
 // src/app/page.tsx
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 
 const HomePage: React.FC = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const router = useRouter();
+
+    const handleSearch = () => {
+        if (searchTerm.trim() !== '') {
+            // Navigate to the results page with the search term as a query parameter
+            router.push(`/results?query=${encodeURIComponent(searchTerm)}`);
+        }
+    };
     return (
         <div style={styles.container}>
             <main style={styles.mainContent}>
                 <h1 style={styles.title}>Hit Your Dream Home out of the Park!</h1>
                 <div style={styles.searchContainer}>
-                    <input type="text" placeholder="Search" style={styles.searchInput} />
-                    <button style={styles.searchButton}>🔍</button>
+                    <input type="text"
+                           placeholder="Search"
+                           style={styles.searchInput}
+                           value={searchTerm}
+                           onChange={(e) => setSearchTerm(e.target.value)}
+                           style={styles.searchInput} />
+                    <button onClick={handleSearch} style={styles.searchButton}>🔍</button>
                 </div>
                 
                 <h2 style={styles.popularTitle}>Popular Today:</h2>
