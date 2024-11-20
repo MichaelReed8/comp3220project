@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import React from 'react';
 import Header from '../components/Header';
-import './globals.css'; // Optional: Import global styles if needed
+import './globals.css'; 
 
 export const metadata = {
     title: 'Home Run',
@@ -21,6 +21,7 @@ export default function RootLayout({
             <body>
                 <Header />
                 <main>{children}</main>
+                <div id="__next"></div>
             </body>
         </html>
     );
