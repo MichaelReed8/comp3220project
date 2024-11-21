@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import {mockHouses} from "../app/mockHouses";
 
-
 const HomePage: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const router = useRouter();
