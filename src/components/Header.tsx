@@ -1,6 +1,6 @@
 // src/components/Header.tsx
 "use client";
-
+import { ClerkProvider } from '@clerk/nextjs';
 import React from 'react';
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
@@ -13,24 +13,26 @@ const Header: React.FC = () => {
     
     };
 
-    return (
-        <header style={styles.header}>
-            <img src="/homerun.svg" alt="Home Run Logo" style={styles.logo} onClick={navigateHome} />
-            <nav style={styles.nav}>
-                <button onClick={navigateToSellForm} style={styles.navButton}>Sell your home</button>
-                <button style={styles.navButton}>Who We Are</button>
-                <div style={styles.authButtons}>
-                <SignedOut>
-                    <SignInButton mode="modal">
-                    <button style={styles.loginButton}>Login</button>
-                    </SignInButton>
-                </SignedOut>
-                <SignedIn>
-                    <UserButton />
-                </SignedIn>
-                </div>
-            </nav>
-        </header>
+    return ( 
+        <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+            <header style={styles.header}>
+                <img src="/homerun.svg" alt="Home Run Logo" style={styles.logo} onClick={navigateHome} />
+                <nav style={styles.nav}>
+                    <button onClick={navigateToSellForm} style={styles.navButton}>Sell your home</button>
+                    <button style={styles.navButton}>Who We Are</button>
+                    <div style={styles.authButtons}>
+                    <SignedOut>
+                        <SignInButton mode="modal">
+                        <button style={styles.loginButton}>Login</button>
+                        </SignInButton>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
+                    </div>
+                </nav>
+            </header> 
+        </ClerkProvider>
     );
 };
 
