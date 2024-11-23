@@ -6,9 +6,19 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import {useState} from "react";
 import React from "react";
+import Modal from "react-bootstrap/Modal";
 
 
 const sellPage: React.FC = () => {
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => {
+      (document.getElementById('my_modal_1')! as HTMLDialogElement).showModal();
+    }
+
+
+
     const [formData, setFormData] = useState({
         addr: '',
         price: '',
@@ -23,7 +33,7 @@ const sellPage: React.FC = () => {
       });
     
       // Handle form field changes
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const handleChange = (e: React.FocusEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData(prevData => ({
           ...prevData,
@@ -38,7 +48,8 @@ const sellPage: React.FC = () => {
         /* entry needs to be sent to back-end to be inputted */
         console.log(entry);
         console.log('Form submitted:', formData);
-        
+        countdown(10);
+        setTimeout(handleShow,0);
       };
 
       function parseData() {
@@ -47,11 +58,41 @@ const sellPage: React.FC = () => {
         return metaData;
       }
     
+      function countdown(startTime: number) {
+        const element = document.getElementById("countdown")!;
+        element.textContent = "Redirecting you to home page in " + startTime.toString() + " seconds.";
+        startTime--;
+        const timer = setInterval(() => {
+          element.textContent = "Redirecting you to home page in " + startTime.toString() + " seconds.";
+
+          if (startTime <= 0) {
+            clearInterval(timer);
+            window.location.href = "/";
+          }
+          startTime--;
+
+        }, 1000);
+      }
+
+      
       return (
         <>
         <h1 className="text-center mb-4">Please enter your house information</h1>
         <Container className=" justify-content-center align-items-center" style={{  height: '100vh' }}>
-          
+       
+          <dialog id="my_modal_1" className="modal">
+  <div className="modal-box bg-white">
+    <h3 className="font-bold text-lg">Form Submitted!</h3>
+    <div className="py-4" id="countdown"></div>
+    <p>Press Close to be instantly redirected</p>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn" onClick={() => window.location.href = "/"}>Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
           <Row>
           <Col md={2} lg={2}></Col>
           <Col md={8} lg={8}>
