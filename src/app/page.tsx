@@ -1,20 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useState } from 'react';
 import Link from "next/link";
-import {mockHouses} from "../app/mockHouses"; 
+import { useRouter } from 'next/navigation';
+import {mockHouses} from "../app/mockHouses";
 
 const HomePage: React.FC = () => {
-  return (
-    <div style={styles.container}>
-      <main style={styles.mainContent}>
-        <h1 style={styles.title}>Hit Your Dream Home out of the Park!</h1>
-        <div style={styles.searchContainer}>
-          <input type="text" placeholder="Search" style={styles.searchInput} />
-          <button style={styles.searchButton}>🔍</button>
-        </div>
+    const [searchTerm, setSearchTerm] = useState('');
+    const router = useRouter();
 
-        <h2 style={styles.popularTitle}>Popular Today:</h2>
+    const handleSearch = () => {
+        if (searchTerm.trim() !== '') {
+            // Navigate to the results page with the search term as a query parameter
+            router.push(`/results?query=${encodeURIComponent(searchTerm)}`);
+        }
+    };
+    return (
+        <div style={styles.container}>
+            <main style={styles.mainContent}>
+                <h1 style={styles.title}>Hit Your Dream Home out of the Park!</h1>
+                <div style={styles.searchContainer}>
+                    <input type="text"
+                           placeholder="Search"
+                           style={styles.searchInput}
+                           value={searchTerm}
+                           onChange={(e) => setSearchTerm(e.target.value)}
+                           style={styles.searchInput} />
+                    <button onClick={handleSearch} style={styles.searchButton}>🔍</button>
+                </div>
+                
+                <h2 style={styles.popularTitle}>Popular Today:</h2>
         <div style={styles.carousel}>
           {Array.isArray(mockHouses) && mockHouses.map((house) => (
             <div key={house.id} style={styles.carouselCard}>
@@ -25,6 +40,7 @@ const HomePage: React.FC = () => {
                     src={house.photos[0]?.url || "/placeholder.jpg"} // Display the first photo or a placeholder
                     alt={house.photos[0]?.altText || "House image"}
                     style={styles.carouselImage}
+     
                   />
                 </div>
               </Link>

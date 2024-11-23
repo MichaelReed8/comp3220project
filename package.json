@@ -10,9 +10,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.4.0",
     "bootstrap": "^5.3.3",
     "carousel": "^0.0.3",
     "next": "^15.0.2",
+    "npm": "^10.9.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-modal": "^3.16.1",
