@@ -18,6 +18,9 @@ const Header: React.FC = () => {
         window.location.href = "/";
     
     };
+    const navigateToStats = () => {
+        window.location.href = "/statistics";
+    };
 
     return ( 
         <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
@@ -25,25 +28,27 @@ const Header: React.FC = () => {
                 <img src="/homerun.svg" alt="Home Run Logo" style={styles.logo} onClick={navigateHome} />
                 <nav style={styles.nav}>
                     <button onClick={navigateToSellForm} style={styles.navButton}>Sell your home</button>
+                    <button onClick={navigateToStats} style={styles.navButton}>Statistics</button>
+
                     <button style={styles.navButton}>Who We Are</button>
                     <div style={styles.authButtons}>
-                    <SignedOut>
-                        <SignInButton mode="modal">
-                        <button style={styles.loginButton}>Login</button>
-                        </SignInButton>
-                    </SignedOut>
-                    <SignedIn>
-                        <UserButton />
-                    </SignedIn>
+                        <SignedOut>
+                            <SignInButton mode="modal">
+                                <button style={styles.loginButton}>Login</button>
+                            </SignInButton>
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton/>
+                        </SignedIn>
                     </div>
                 </nav>
-            </header> 
+            </header>
         </ClerkProvider>
     );
 };
 
 const styles = {
-    header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }, 
+    header: {display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' },
     authButtons: { display: "flex", gap: "10px" },
     logo: { height: '60px' },
     nav: { display: 'flex', gap: '20px', alignItems: 'center' },

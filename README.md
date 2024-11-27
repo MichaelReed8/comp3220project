@@ -35,3 +35,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## To run the Clerk log in program, create the ".env.local" file in the root of the folder and paste the following public and private keys for it to run
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_cmlnaHQtbGlvbi02Mi5jbGVyay5hY2NvdW50cy5kZXYk
+CLERK_SECRET_KEY=sk_test_YoZDlriPF2yXPz7Ugl3kYXBJ0CYJEMLggHspOBdkrs
+
