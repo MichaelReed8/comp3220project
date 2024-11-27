@@ -1,3 +1,14 @@
+/**
+ * Authors: Nick Cecchin, Nathan Serre
+ * Title: home page
+ * Date: November 27th, 2024
+ * Description: responsible for calling the back end API in 
+ * line 26, and displaying popular homes.
+ * Last Modified: November 23rd, 2024
+ */
+
+
+
 "use client";
 
 import React, { useState } from 'react';

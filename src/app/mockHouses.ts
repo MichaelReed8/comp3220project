@@ -1,3 +1,13 @@
+/**
+ * Author: Nathan Serre
+ * Title: Mock houses
+ * Date: November 27th, 2024
+ * Description: a prototype for the "popular homes" section,
+ * these are manually inputted houses using the classes from ../classes.
+ * For proof of concept, to be replaced by the most queried/ visited homes
+ * Last Modified: November 19th, 2024
+ */
+
 import House from "../classes/House";
 import Location from "../classes/Location";
 import Photo from "../classes/Photo";

@@ -1,4 +1,10 @@
-// src/components/Header.tsx
+/** Authors: Nathan Serre, Amer Odobasic and Nick Cecchin
+ * Title: Navigation Bar
+ * Date: November 27th, 2024
+ * Description: Navigation bar at the top of the webpage
+ * used to navigate between all webpages
+ * Last Modified: November 27th, 2024
+ */
 "use client";
 import { ClerkProvider } from '@clerk/nextjs';
 import React from 'react';

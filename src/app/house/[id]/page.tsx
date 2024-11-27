@@ -1,4 +1,13 @@
-// Page for individual house listings
+/**
+ * Author: Nathan Serre
+ * Title: House Page
+ * Date: November 27th
+ * Description: A proof of concept page to show what a
+ * OnClick event of a specific house may look like. These would
+ * be replaced by another page when properly implemented from houses 
+ * returned by the backend
+ * Last Modified: November 19th
+ */
 "use client";
 
 import React, { useState, useEffect } from "react";

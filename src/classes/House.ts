@@ -1,4 +1,10 @@
-//House class
+/**
+ * Author: Nathan Serre
+ * Title: House class
+ * Date: November 27th, 2024
+ * Description: House class to store all information of each house
+ * Last Modified: November 19th
+ */
 
 import Location from "./Location";
 import Realtor from "./Realtor";

@@ -1,4 +1,10 @@
-//Realtor class
+/**
+ * Author: Nathan Serre
+ * Title: Realtor class
+ * Date: November 27th, 2024
+ * Description: Realtor class used to store information about the Realtor.
+ * Last Modified: November 19th
+ */
 class Realtor {
     id: number;
     name: string;

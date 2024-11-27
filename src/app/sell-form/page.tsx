@@ -1,3 +1,14 @@
+/**
+ * Author: Michael Reed
+ * Title: sell form
+ * Date: November 27th, 2024
+ * Description: the sell form is to be used
+ * by clients looking to sell their home. Users
+ * input information on their home, press submit,
+ * and a notification appears saying the form has
+ * been submitted.
+ * Last Modified: November 27th, 2024
+ **/
 "use client"
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -45,7 +56,7 @@ const sellPage: React.FC = () => {
       const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const entry = parseData();
-        /* entry needs to be sent to back-end to be inputted */
+        /* TODO: entry needs to be sent to back-end to be inputted */
         console.log(entry);
         console.log('Form submitted:', formData);
         countdown(10);
@@ -87,7 +98,6 @@ const sellPage: React.FC = () => {
     <p>Press Close to be instantly redirected</p>
     <div className="modal-action">
       <form method="dialog">
-        {/* if there is a button in form, it will close the modal */}
         <button className="btn" onClick={() => window.location.href = "/"}>Close</button>
       </form>
     </div>
@@ -98,7 +108,6 @@ const sellPage: React.FC = () => {
           <Col md={8} lg={8}>
           
           <Form onSubmit={handleSubmit} className="mb-3" style={{ textAlign:"center", width: '100%' }}>
-            {/* Name Input */}
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Full Address</Form.Label>
               <Form.Control 
@@ -123,7 +132,6 @@ const sellPage: React.FC = () => {
             </Form.Group>
             <Row className="mb-3">
               <Col>
-            {/* Age Input */}
             <Form.Group controlId="age">
               <Form.Label>Square Footage</Form.Label>
               <Form.Control 
@@ -137,7 +145,6 @@ const sellPage: React.FC = () => {
             </Form.Group>
               </Col>
               <Col>
-            {/* Email Input */}
             <Form.Group controlId="email">
               <Form.Label>Lot Size in Acres</Form.Label>
               <Form.Control
@@ -153,7 +160,6 @@ const sellPage: React.FC = () => {
           </Row>
           <Row>
             <Col>
-            {/* Phone Input */}
             <Form.Group controlId="phone">
               <Form.Label>Number of Bedrooms</Form.Label>
               <Form.Control
@@ -167,7 +173,6 @@ const sellPage: React.FC = () => {
             </Form.Group>
           </Col>
           <Col>
-            {/* Message Input */}
             <Form.Group controlId="message">
               <Form.Label>Number of Bathrooms</Form.Label>
               <Form.Control 
@@ -183,7 +188,6 @@ const sellPage: React.FC = () => {
             </Row>
             <Row className="mt-3">
             <Col>
-            {/* Phone Input */}
             <Form.Group controlId="phone">
               <Form.Label>Zip Code</Form.Label>
               <Form.Control 
@@ -197,7 +201,6 @@ const sellPage: React.FC = () => {
             </Form.Group>
           </Col>
           <Col>
-            {/* Message Input */}
             <Form.Group controlId="message">
               <Form.Label>State</Form.Label>
               <Form.Control 
@@ -213,7 +216,6 @@ const sellPage: React.FC = () => {
             </Row>
             <Row className="mt-3">
             <Col>
-            {/* Phone Input */}
             <Form.Group controlId="phone">
               <Form.Label>Price</Form.Label>
               <Form.Control 
@@ -227,7 +229,6 @@ const sellPage: React.FC = () => {
             </Form.Group>
           </Col>
           <Col>
-            {/* Message Input */}
             <Form.Group controlId="message">
               <Form.Label>Email</Form.Label>
               <Form.Control 
@@ -248,8 +249,6 @@ const sellPage: React.FC = () => {
       color: white;
       margin-top: 20px;
     }
-
-    
     `}
       </style>
 

@@ -1,3 +1,12 @@
+/**
+ * Author: Nick Cecchin
+ * Title: Results Page
+ * Date: November 27th, 2024
+ * Description: displays results of a query from home page,
+ * using the inputted data from the search field as a parameter.
+ * Last Modified: November 20th, 2024
+ */
+
 "use client";
 
 import React, { useEffect, useState } from 'react';

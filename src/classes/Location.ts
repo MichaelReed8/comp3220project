@@ -1,4 +1,10 @@
-//Location class
+/**
+ * Author: Nathan Serre
+ * Title: Location class
+ * Date: November 27th, 2024
+ * Description: Location class to store coordinates of each house for mapping
+ * Last Modified: November 19th
+ */
 class Location {
     id: number;
     latitude: number;
